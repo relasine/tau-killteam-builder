@@ -1,0 +1,305 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+section {
+  box-shadow: 3px 3px #A9A9A9;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 82px 1fr;
+
+  margin: 1em auto;
+  width: 1180px;
+}
+
+/*HEADER SECTION*/
+header {
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+h1 {
+  margin-left: 1.3em;
+}
+
+.point-total-label {
+  justify-self: right;
+  margin-right: 1.3em;
+}
+
+/*ADD UNIT SECTION*/
+.mainwrapper {
+  background: #EDF2F6;
+  border-right: #BEBEBE solid 1px;
+
+}
+
+main {
+
+  padding-top: 1em;
+
+  grid-column: 1;
+  grid-row: 2;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.unit-wrapper {
+  margin: .5em;
+  height: 160px;
+}
+
+/*.br-leader-wrapper {
+  grid-column: 1;
+}
+
+.pf-leader-wrapper {
+  grid-column: 1;
+}
+
+.ss-leader-wrapper {
+  grid-column: 1;
+}
+
+.drone-wrapper {
+  grid-column: 1;
+}*/
+
+.add-unit {
+  box-shadow: .5px .5px #A9A9A9;
+  
+  border-radius: 25px;
+  width: 8em;
+
+  display: block;
+  /*margin: auto;*/
+}
+
+.add-unit:hover {
+  cursor: pointer;
+  filter: brightness(110%);
+  box-shadow: 2px 2px 2px grey;
+}
+
+.unit-label, .unit-cost {
+  text-align: center;
+}
+
+.unit-label {
+  font-size: .7em;
+  font-weight: 700;
+
+  margin-bottom: .2em;
+  margin-top: .4em;
+}
+
+.unit-cost {
+  font-size: .7em;
+  font-style: italic;
+  margin: 0;
+}
+
+/*ADDED UNITS SECTION*/
+aside {
+  background: #EDF2F6;
+
+ /* grid-column: 2;
+  grid-row: 2;*/
+}
+
+/*CARD STYLING*/
+article {
+  background: #cbd9e5;
+  box-shadow: .5px .5px #A9A9A9;
+  font-size: .7em;
+  
+  border-radius: 25px;
+  margin: 16px auto;
+  height: 175px;
+  width: 420px;
+
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: 70px 35px 35px 35px;
+  /*grid-template-rows: 2fr 1fr 1fr 1fr;*/
+}
+
+.card-icon {
+  box-shadow: .5px .5px #A9A9A9;
+  
+  border-radius: 15px;
+  width: 5em;
+
+  align-self: center;
+  display: block;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.card-name {
+  align-self: center;
+  justify-self: center;
+  margin-top: 1.5em;
+}
+
+.card-upper-right-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+
+.delete-btn { 
+  color: black;
+  font-size: 1.5em;
+  justify-self: right;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.card-cost {
+  font-weight: 700;
+  font-size: 2em;
+  align-self: center;
+  justify-self: center;
+  margin-left: 1em;
+}
+
+.card-weapon-label, .card-spec {
+  margin: auto;
+}
+
+.card-select {
+  background-color: #EDF2F6;
+
+  align-self: center;
+  border: 0;
+  border-radius: 5px;
+  height: 2em;
+  margin: 1em;
+}
+
+.card-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+  display: none;
+}
+
+.fixed-weapon {
+  align-self: center;
+  text-align: center;
+}
+
+.card-spec {
+  grid-column: 1;
+}
+
+.option-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-options-label {
+  align-self: center;
+  text-align: center;
+  grid-column: 1;
+}
+
+.p-pistol {
+  grid-column: 2;
+}
+
+.checkbox-label {
+  font-size: .8em;
+  display: inline-block;
+}
+
+.checkbox {
+  margin-left: 1em;
+}
+
+.drone-div {
+  background: #cbd9e5;
+  box-shadow: .5px .5px #A9A9A9;
+  font-size: .7em;
+  
+  border-radius: 25px;
+  margin: 16px auto;
+  height: 7em;
+  width: 420px;
+
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+}
+
+.drone-select {
+  grid-column: 2;
+}
+
+@media (max-width: 1200px) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1042) {
+  section {
+    grid-template-columns: 590px 452px;
+  }
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 835px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 715px) {
+  section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr 1fr;
+  }
+  main {
+    grid-row: 2;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  aside {
+    grid-row: 3;
+  }
+
+}
+
+@media (max-width: 550px) {
+  header {
+  grid-column: 1;
+  grid-template-columns: 1fr;
+  }
+
+  .point-total-label {
+  justify-self: left;
+  }
+
+  .h1, .h2 {
+    font-size: 1em;
+  }
+
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
