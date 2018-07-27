@@ -644,13 +644,13 @@ function createPFGunner(event) {
   var cost = 7;
   var newArticle = document.createElement("article");
   newArticle.setAttribute("class", "card");
-  addImage(newArticle, "images/pf-leader.jpg");
-  addHeader(newArticle, "Pathfinder Shas'ui");
+  addImage(newArticle, "images/pf-grunt.jpg");
+  addHeader(newArticle, "Pathfinder Gunner");
   addNewRightDiv(newArticle, cost);
   addNewWeaponLabel(newArticle);
   addNewWeaponSelectPFGunner(newArticle);  
   addSpecLabel(newArticle);
-  addSpecPFLeader(newArticle);
+  addSpecPFGunner(newArticle);
   addOptionsLabel(newArticle);
   addPistolWrapper(newArticle);
   unitSection.appendChild(newArticle);
