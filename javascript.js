@@ -229,6 +229,7 @@ function addSpecPFLeader(newArticle) {
   addNoSpec(newSpecSelect);
   addLeadSpec(newSpecSelect);
   addCommSpec(newSpecSelect);
+  addScoutSpec(newSpecSelect);
   addVetSpec(newSpecSelect);
   newArticle.appendChild(newSpecSelect);
 }
@@ -239,6 +240,7 @@ function addSpecPFGrunt(newArticle) {
   addNoSpec(newSpecSelect);
   addCommSpec(newSpecSelect);
   addDemoSpec(newSpecSelect);
+  addScoutSpec(newSpecSelect);
   newArticle.appendChild(newSpecSelect);
 }
 
@@ -248,6 +250,7 @@ function addSpecPFGunner(newArticle) {
   addNoSpec(newSpecSelect);
   addCommSpec(newSpecSelect);
   addDemoSpec(newSpecSelect);
+  addScoutSpec(newSpecSelect);
   addSniperSpec(newSpecSelect);
   newArticle.appendChild(newSpecSelect);
 }
