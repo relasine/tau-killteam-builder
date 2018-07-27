@@ -745,32 +745,27 @@ function stealthOption() {
 function addTurret() {
   var currentUnitPoints = parseInt(event.target.parentNode.childNodes[2].childNodes[0].innerHTML);
   var currentTotal = parseInt(totalPoints.innerText);
-  if (event.target.value === "Support Turret w/ MP - 7pt") {
-    if (currentUnitPoints > 9) {
-      totalPoints.innerText = currentTotal + 2;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 2;
-    } else {
-      totalPoints.innerText = currentTotal + 7;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 7;
-    }
+  if (event.target.value === "Support Turret w/ MP - 7pt" && currentUnitPoints > 9) {
+    totalPoints.innerText = currentTotal + 2;
+    event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 2;
+  } else if (vent.target.value === "Support Turret w/ MP - 7pt") {
+    totalPoints.innerText = currentTotal + 7;
+    event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 7;
+  } else if (event.target.value === "Support Turret w/ SMS - 5pt" && currentUnitPoints > 14) {
+    totalPoints.innerHTML = currentTotal -2;
+    event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints - 2;
   } else if (event.target.value === "Support Turret w/ SMS - 5pt") {
-    if (currentUnitPoints > 14) {
-      totalPoints.innerHTML = currentTotal -2;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints - 2;
-    } else {
-      totalPoints.innerText = currentTotal +5;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 5;
-    }
+    totalPoints.innerText = currentTotal +5;
+    event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 5;
+  } else if (event.target.value === "No Support Turret" && currentUnitPoints > 14) {
+    totalPoints.innerHTML = currentTotal -7;
+    event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -7;
   } else {
-    if (currentUnitPoints > 14) {
-      totalPoints.innerHTML = currentTotal -7;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -7;
-    } else {
-      totalPoints.innerHTML = currentTotal -5;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -5;
-    }
+    totalPoints.innerHTML = currentTotal -5;
+    event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -5;
   }
 }
+
 
 function gunnerChange() {
   var currentUnitPoints = parseInt(event.target.parentNode.childNodes[2].childNodes[0].innerHTML);
