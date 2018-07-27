@@ -1,4 +1,5 @@
   //QUERY SELECTORS//
+  
 var totalPoints = document.querySelector(".point-total-span");
 var fwLeaderAdd = document.querySelector(".add-fw-leader");
 var fwGruntAdd = document.querySelector(".add-fw-grunt");
@@ -29,6 +30,7 @@ unitSection.addEventListener("click", masterFunction);
 
   //FUNCTIONS//
 
+    //ADD COMPONENTS//
 
 function addImage(newArticle, image) {
   var newImage = document.createElement("img");
@@ -65,6 +67,8 @@ function addDeleteBtn(newRightDiv) {
   newRightDiv.appendChild(newDelete);
 }
 
+    //ADD CLASS WEAPON SELECTS//
+
 function addNewWeaponLabel(newArticle) {
   var newWeaponLabel = document.createElement("p");
   newWeaponLabel.setAttribute("class", "card-weapon-label");
@@ -98,6 +102,22 @@ function addNewWeaponSelectSS(newArticle) {
   addFusionBlaster(newWeaponSelect);
   newArticle.appendChild(newWeaponSelect);
 }
+
+function addNewWeaponSelectBR(newArticle) {
+  var newPBlaster = document.createElement("p");
+  newPBlaster.innerText = "Pulse Blaster - 0pt";
+  newPBlaster.setAttribute("class", "fixed-weapon");
+  newArticle.appendChild(newPBlaster);
+}
+
+function addNewWeaponSelectPF(newArticle) {
+  var newPCarbine = document.createElement("p");
+  newPCarbine.innerText = "Pulse Carbine w/ ML - 0pt";
+  newPCarbine.setAttribute("class", "fixed-weapon");
+  newArticle.appendChild(newPCarbine);
+}
+
+    //ADD WEAPONS//
 
 function addPCarbineWML(newWeaponSelect) {
   var newPCarbine = document.createElement("option");
@@ -133,24 +153,6 @@ function addFusionBlaster(newWeaponSelect) {
   newFusionBlaster.setAttribute("class", "f-blaster");
   newWeaponSelect.appendChild(newFusionBlaster);
 }
-// <select class="card-select weapon-select" onchange="stealthWeapon()">
-//               <option class="b-cannon">Burst Cannon - 0pt</option>
-//               <option class="f-blaster">Fusion Blaster - 4pt</option>
-//             </select>
-
-function addNewWeaponSelectBR(newArticle) {
-  var newPBlaster = document.createElement("p");
-  newPBlaster.innerText = "Pulse Blaster - 0pt";
-  newPBlaster.setAttribute("class", "fixed-weapon");
-  newArticle.appendChild(newPBlaster);
-}
-
-function addNewWeaponSelectPF(newArticle) {
-  var newPCarbine = document.createElement("p");
-  newPCarbine.innerText = "Pulse Carbine w/ ML - 0pt";
-  newPCarbine.setAttribute("class", "fixed-weapon");
-  newArticle.appendChild(newPCarbine);
-}
 
 function addPRifle(newWeaponSelect) {
   var newPRifle = document.createElement("option");
@@ -165,6 +167,8 @@ function addPCarbine(newWeaponSelect) {
   newPCarbine.setAttribute("class", "p-carbine");
   newWeaponSelect.appendChild(newPCarbine);
 }
+
+    //ADD CLASS SPEC LISTS//
 
 function addSpecLabel(newArticle) {
   var newSpecLabel = document.createElement("p");
@@ -278,6 +282,8 @@ function addSpecSSGrunt(newArticle) {
   newArticle.appendChild(newSpecSelect);
 }
 
+    //SPEC LISTS//
+
 function addNoSpec(newSpecSelect) {
    var specNone = document.createElement("option");
   specNone.innerText = "No specialism";
@@ -341,6 +347,8 @@ function addVetSpec(newSpecSelect) {
   newSpecSelect.appendChild(vetSpec);
 }
 
+    //ADD OPTIONS//
+
 function addOptionsLabel(newArticle) {
   var optionsLabel = document.createElement("p");
   optionsLabel.setAttribute("class", "card-options-label");
@@ -371,7 +379,7 @@ function addPPistol(pistolWrapper) {
   pistolWrapper.appendChild(pPistol);
 }
 
-  // PF/BR LEADER MARKERLIGHT //
+    // PF/BR LEADER MARKERLIGHT //
 
 function addMarkerWrapper(newArticle) {
   var markerWrapper = document.createElement("div");
@@ -395,7 +403,7 @@ function addMarkerCheck(markerWrapper) {
   markerWrapper.appendChild(markerCheck);
 }
 
-  // SS LEADER MARKERLIGHT/TARGETLOCK //
+    // SS LEADER MARKERLIGHT/TARGETLOCK //
 
 function addMLTLWrapper(newArticle) {
   var markerWrapper = document.createElement("div");
@@ -420,10 +428,7 @@ function addSSMarkerCheck(markerWrapper) {
   markerWrapper.appendChild(markerCheck);
 }
 
-// <div class="tl-ml-wrapper option-wrapper">
-//             <p class="checkbox-label">ML w/ Target Lock - 1pt</p>
-//             <input type="checkbox" name="ml-tl" class="ml-tl checkbox">
-//           </div>
+    //ADD TURRETS//
 
 function addTurretOption(newArticle) {
   var addTurretSelect = document.createElement("select");
@@ -455,6 +460,8 @@ function addMPTurret(addTurretSelect) {
   mPTurret.setAttribute("class", "mp-turret");
   addTurretSelect.appendChild(mPTurret);
 }
+
+    //ADD DRONES//
 
 function addDroneSelect(newArticle) {
   var newDroneSelect = document.createElement("select");
@@ -519,11 +526,7 @@ function addGuardianDrone(newDroneSelect) {
   newDroneSelect.appendChild(newGuardianDrone);
 }
 
-function updatePoints(cost) {
-  var currentTotal = parseInt(totalPoints.innerText);
-  var newTotal = currentTotal + cost;;
-  totalPoints.innerHTML = newTotal;
-}
+    //CREATE CLASS CARDS//
 
 function createFWLeader(event) {
   event.preventDefault();
@@ -581,7 +584,6 @@ function createBreacherLeader(event) {
   unitSection.appendChild(newArticle);
   updatePoints(cost);
 }
-
 
 function createBreacherGrunt(event) {
   event.preventDefault();
@@ -702,6 +704,12 @@ function createDrone(event) {
   updatePoints(cost);
 }
 
+function updatePoints(cost) {
+  var currentTotal = parseInt(totalPoints.innerText);
+  var newTotal = currentTotal + cost;;
+  totalPoints.innerHTML = newTotal;
+}
+
 function deleteBtn() {
   if(event.target.classList.contains("delete-btn")) {
     var reducePoints = event.target.previousSibling.innerText;
@@ -715,6 +723,8 @@ function deleteBtn() {
 function masterFunction() {
   deleteBtn();
 }
+
+    //OPTION FUNCTIONS//
 
 function pulsePistol() {
   if(event.target.checked) {
@@ -744,6 +754,7 @@ function stealthOption() {
   }
 }
 
+    //TURRET CHANGES//
 
 function addTurret() {
   var currentUnitPoints = parseInt(event.target.parentNode.childNodes[2].childNodes[0].innerHTML);
@@ -769,6 +780,7 @@ function addTurret() {
   }
 }
 
+    //PATHFINDER GUNNER WEAPON CHANGES//
 
 function gunnerChange() {
   var currentUnitPoints = parseInt(event.target.parentNode.childNodes[2].childNodes[0].innerHTML);
@@ -824,6 +836,7 @@ function carbineFromIon(event, currentTotal, currentUnitPoints) {
   event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -3;
 }
 
+    //STEALTH SUIT WEAPON CHANGE//
 
 function stealthWeapon() {
   var currentUnitPoints = parseInt(event.target.parentNode.childNodes[2].childNodes[0].innerHTML);
@@ -836,6 +849,8 @@ function stealthWeapon() {
     event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -4;
   }
 }
+
+    //DRONE FUNCTIONS//
 
 function changeDronePic() {
   if (event.target.value === "Gun Drone") {
