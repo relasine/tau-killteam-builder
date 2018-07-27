@@ -287,4 +287,8 @@ article {
   main {
     grid-template-columns: repeat(2, 1fr);
   }
+  article {
+    border-radius: 15px;
+    width: 95%;
+  }
 }
