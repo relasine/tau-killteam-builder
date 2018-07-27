@@ -775,35 +775,57 @@ function addTurret() {
 function gunnerChange() {
   var currentUnitPoints = parseInt(event.target.parentNode.childNodes[2].childNodes[0].innerHTML);
   var currentTotal = parseInt(totalPoints.innerText);
-  if (event.target.value === "Ion Rifle - 3pt") {
-    event.target.parentNode.childNodes[0].src="images/pf-gunner-ion.jpg"
-    if (currentUnitPoints === 12) {
-      totalPoints.innerText = currentTotal -2;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -2;
-    } else {
-      totalPoints.innerText = currentTotal +3;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints +3;
-    }
+  if (event.target.value === "Ion Rifle - 3pt" && currentUnitPoints === 12) {
+    ionFromRail(event, currentTotal, currentUnitPoints);
+  } else if (event.target.value === "Ion Rifle - 3pt") {
+    ionFromCarbine(event, currentTotal, currentUnitPoints);
+  } else if (event.target.value === "Rail Rifle - 5pt" && currentUnitPoints === 7) {
+    railFromCarbine(event, currentTotal, currentUnitPoints)
   } else if (event.target.value === "Rail Rifle - 5pt") {
-    event.target.parentNode.childNodes[0].src="images/pf-gunner-rail.jpg"
-    if (currentUnitPoints === 7) {
-      totalPoints.innerText = currentTotal +5;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints +5;
-    } else {
-      totalPoints.innerText = currentTotal +2;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints +2;
-    }
+    railFromIon(event, currentTotal, currentUnitPoints);
+  } else if (event.target.value === "Pulse Carbine w/ ML - 0pt" && currentUnitPoints === 12) {
+    carbineFromRail(event, currentTotal, currentUnitPoints);
   } else {
-    event.target.parentNode.childNodes[0].src="images/pf-grunt.jpg"
-    if (currentUnitPoints === 12) {
-      totalPoints.innerText = currentTotal -5;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -5;      
-    } else {
-      totalPoints.innerText = currentTotal -3;
-      event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -3;
-    }
+    carbineFromIon(event, currentTotal, currentUnitPoints);
   }
 }
+
+function ionFromRail(event, currentTotal, currentUnitPoints) {
+  event.target.parentNode.childNodes[0].src="images/pf-gunner-ion.jpg"
+  totalPoints.innerText = currentTotal -2;
+  event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -2;
+}
+
+function ionFromCarbine(event, currentTotal, currentUnitPoints) {
+  event.target.parentNode.childNodes[0].src="images/pf-gunner-ion.jpg"
+  totalPoints.innerText = currentTotal +3;
+  event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints +3;
+}
+
+function railFromCarbine(event, currentTotal, currentUnitPoints) {
+  event.target.parentNode.childNodes[0].src="images/pf-gunner-rail.jpg"
+  totalPoints.innerText = currentTotal +5;
+  event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints +5;
+}
+
+function railFromIon(event, currentTotal, currentUnitPoints) {
+  event.target.parentNode.childNodes[0].src="images/pf-gunner-rail.jpg"
+  totalPoints.innerText = currentTotal +2;
+  event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints +2;
+}
+
+function carbineFromRail(event, currentTotal, currentUnitPoints) {
+  event.target.parentNode.childNodes[0].src="images/pf-grunt.jpg"
+  totalPoints.innerText = currentTotal -5;
+  event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -5;      
+}
+
+function carbineFromIon(event, currentTotal, currentUnitPoints) {
+  event.target.parentNode.childNodes[0].src="images/pf-grunt.jpg"
+  totalPoints.innerText = currentTotal -3;
+  event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -3;
+}
+
 
 function stealthWeapon() {
   var currentUnitPoints = parseInt(event.target.parentNode.childNodes[2].childNodes[0].innerHTML);
