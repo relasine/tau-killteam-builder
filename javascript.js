@@ -762,7 +762,7 @@ function addTurret() {
   if (event.target.value === "Support Turret w/ MP - 7pt" && currentUnitPoints > 9) {
     totalPoints.innerText = currentTotal + 2;
     event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 2;
-  } else if (vent.target.value === "Support Turret w/ MP - 7pt") {
+  } else if (event.target.value === "Support Turret w/ MP - 7pt") {
     totalPoints.innerText = currentTotal + 7;
     event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 7;
   } else if (event.target.value === "Support Turret w/ SMS - 5pt" && currentUnitPoints > 14) {
