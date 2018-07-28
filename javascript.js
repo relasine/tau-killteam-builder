@@ -76,6 +76,15 @@ function addNewWeaponLabel(newArticle) {
   newArticle.appendChild(newWeaponLabel);
 }
 
+function addNewWeaponSelectFWLeader(newArticle) {
+  var newWeaponSelect = document.createElement("select");
+  newWeaponSelect.setAttribute("class", "card-select");
+  addPRifle(newWeaponSelect);
+  addPCarbine(newWeaponSelect);
+  addPPistol(newWeaponSelect);
+  newArticle.appendChild(newWeaponSelect);
+}
+
 function addNewWeaponSelectFW(newArticle) {
   var newWeaponSelect = document.createElement("select");
   newWeaponSelect.setAttribute("class", "card-select");
@@ -105,14 +114,14 @@ function addNewWeaponSelectSS(newArticle) {
 
 function addNewWeaponSelectBR(newArticle) {
   var newPBlaster = document.createElement("p");
-  newPBlaster.innerText = "Pulse Blaster - 0pt";
+  newPBlaster.innerText = "Pulse Blaster";
   newPBlaster.setAttribute("class", "fixed-weapon");
   newArticle.appendChild(newPBlaster);
 }
 
 function addNewWeaponSelectPF(newArticle) {
   var newPCarbine = document.createElement("p");
-  newPCarbine.innerText = "Pulse Carbine w/ ML - 0pt";
+  newPCarbine.innerText = "Pulse Carbine w/ ML";
   newPCarbine.setAttribute("class", "fixed-weapon");
   newArticle.appendChild(newPCarbine);
 }
@@ -121,7 +130,7 @@ function addNewWeaponSelectPF(newArticle) {
 
 function addPCarbineWML(newWeaponSelect) {
   var newPCarbine = document.createElement("option");
-  newPCarbine.innerText = "Pulse Carbine w/ ML - 0pt";
+  newPCarbine.innerText = "Pulse Carbine w/ ML";
   newPCarbine.setAttribute("class", "p-carbine");
   newWeaponSelect.appendChild(newPCarbine);
 }
@@ -142,7 +151,7 @@ function addRailRifle(newWeaponSelect) {
 
 function addBurstCannon(newWeaponSelect) {
   var newBurstCannon = document.createElement("option");
-  newBurstCannon.innerText = "Burst Cannon - 0pt";
+  newBurstCannon.innerText = "Burst Cannon";
   newBurstCannon.setAttribute("class", "b-cannon");
   newWeaponSelect.appendChild(newBurstCannon);
 }
@@ -156,16 +165,23 @@ function addFusionBlaster(newWeaponSelect) {
 
 function addPRifle(newWeaponSelect) {
   var newPRifle = document.createElement("option");
-  newPRifle.innerText = "Pulse Rifle - 0pt";
+  newPRifle.innerText = "Pulse Rifle";
   newPRifle.setAttribute("class", "p-rifle");
   newWeaponSelect.appendChild(newPRifle);
 }
 
 function addPCarbine(newWeaponSelect) {
   var newPCarbine = document.createElement("option");
-  newPCarbine.innerText = "Pulse Carbine - 0pt";
+  newPCarbine.innerText = "Pulse Carbine";
   newPCarbine.setAttribute("class", "p-carbine");
   newWeaponSelect.appendChild(newPCarbine);
+}
+
+function addPPistol(newWeaponSelect) {
+  var newPPistol = document.createElement("option");
+  newPPistol.innerText = "Pulse Pistol";
+  newPPistol.setAttribute("class", "p-pistol");
+  newWeaponSelect.appendChild(newPPistol);
 }
 
     //ADD CLASS SPEC LISTS//
@@ -307,7 +323,7 @@ function addLeadSpec(newSpecSelect) {
 
 function addCommSpec(newSpecSelect) {
   var commSpec = document.createElement("option");
-  commSpec.innerText = "Communications";
+  commSpec.innerText = "Comms";
   commSpec.setAttribute("class", "comm-spec");
   newSpecSelect.appendChild(commSpec);  
 }
@@ -360,22 +376,21 @@ function addPistolWrapper(newArticle) {
   var pistolWrapper = document.createElement("div");  
   pistolWrapper.setAttribute("class", "option-wrapper p-pistol-wrapper");
   addPPistolLabel(pistolWrapper);
-  addPPistol(pistolWrapper);
+  addPPistolCheck(pistolWrapper);
   newArticle.appendChild(pistolWrapper);
 }
 
 function addPPistolLabel(pistolWrapper) {
   var pPistolLabel = document.createElement("p");
-  pPistolLabel.innerText = "Pulse pistol - 1pt";
+  pPistolLabel.innerText = "Pulse pistol";
   pPistolLabel.setAttribute("class", "checkbox-label");
   pistolWrapper.appendChild(pPistolLabel);
 }
 
-function addPPistol(pistolWrapper) {
+function addPPistolCheck(pistolWrapper) {
   var pPistol = document.createElement("input");
   pPistol.setAttribute("type", "checkbox");
   pPistol.setAttribute("class", "p-pistol checkbox");
-  pPistol.setAttribute("onchange", "pulsePistol()");
   pistolWrapper.appendChild(pPistol);
 }
 
@@ -392,7 +407,7 @@ function addMarkerWrapper(newArticle) {
 function addMarkerLabel(markerWrapper) {
   var markerLabel = document.createElement("p");
   markerLabel.setAttribute("class", "checkbox-label");
-  markerLabel.innerText = "Markerlight - 0pt";
+  markerLabel.innerText = "Markerlight";
   markerWrapper.appendChild(markerLabel);
 }
 
@@ -537,12 +552,12 @@ function createFWLeader(event) {
   addHeader(newArticle, "Fire Warrior Shas'ui");
   addNewRightDiv(newArticle, cost);
   addNewWeaponLabel(newArticle);
-  addNewWeaponSelectFW(newArticle);  
+  addNewWeaponSelectFWLeader(newArticle);  
   addSpecLabel(newArticle);
   addSpecFWLeader(newArticle);
   addOptionsLabel(newArticle);
-  addPistolWrapper(newArticle);
   addMarkerWrapper(newArticle);
+  addPistolWrapper(newArticle);
   unitSection.appendChild(newArticle);
   updatePoints(cost);
 }
@@ -598,6 +613,7 @@ function createBreacherGrunt(event) {
   addSpecLabel(newArticle);
   addSpecBRGrunt(newArticle);
   addOptionsLabel(newArticle);
+  addTurretOption(newArticle);
   addPistolWrapper(newArticle);
   unitSection.appendChild(newArticle);
   updatePoints(cost);
@@ -634,7 +650,6 @@ function createPFGrunt(event) {
   addSpecLabel(newArticle);
   addSpecPFGrunt(newArticle);
   addOptionsLabel(newArticle);
-  addPistolWrapper(newArticle);
   unitSection.appendChild(newArticle);
   updatePoints(cost);
 }
@@ -652,7 +667,6 @@ function createPFGunner(event) {
   addSpecLabel(newArticle);
   addSpecPFGunner(newArticle);
   addOptionsLabel(newArticle);
-  addPistolWrapper(newArticle);
   unitSection.appendChild(newArticle);
   updatePoints(cost);
 }
@@ -726,19 +740,19 @@ function masterFunction() {
 
     //OPTION FUNCTIONS//
 
-function pulsePistol() {
-  if(event.target.checked) {
-    var currentTotal = parseInt(totalPoints.innerText);
-    var newTotal = currentTotal + 1;
-    totalPoints.innerHTML = newTotal;
-    event.target.parentNode.parentNode.childNodes[2].childNodes[0].innerText ++;
-  } else {
-    var currentTotal = parseInt(totalPoints.innerText);
-    var newTotal = currentTotal - 1;
-    totalPoints.innerHTML = newTotal;
-    event.target.parentNode.parentNode.childNodes[2].childNodes[0].innerText --;
-  }
-}
+// function pulsePistol() {
+//   if(event.target.checked) {
+//     var currentTotal = parseInt(totalPoints.innerText);
+//     var newTotal = currentTotal + 1;
+//     totalPoints.innerHTML = newTotal;
+//     event.target.parentNode.parentNode.childNodes[2].childNodes[0].innerText ++;
+//   } else {
+//     var currentTotal = parseInt(totalPoints.innerText);
+//     var newTotal = currentTotal - 1;
+//     totalPoints.innerHTML = newTotal;
+//     event.target.parentNode.parentNode.childNodes[2].childNodes[0].innerText --;
+//   }
+// }
 
 function stealthOption() {
     if(event.target.checked) {
@@ -759,19 +773,19 @@ function stealthOption() {
 function addTurret() {
   var currentUnitPoints = parseInt(event.target.parentNode.childNodes[2].childNodes[0].innerHTML);
   var currentTotal = parseInt(totalPoints.innerText);
-  if (event.target.value === "Support Turret w/ MP - 7pt" && currentUnitPoints > 9) {
+  if (event.target.value === "Support Turret w/ MP - 7pt" && currentUnitPoints === 13) {
     totalPoints.innerText = currentTotal + 2;
     event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 2;
   } else if (event.target.value === "Support Turret w/ MP - 7pt") {
     totalPoints.innerText = currentTotal + 7;
     event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 7;
-  } else if (event.target.value === "Support Turret w/ SMS - 5pt" && currentUnitPoints > 14) {
+  } else if (event.target.value === "Support Turret w/ SMS - 5pt" && currentUnitPoints === 15) {
     totalPoints.innerHTML = currentTotal -2;
     event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints - 2;
   } else if (event.target.value === "Support Turret w/ SMS - 5pt") {
     totalPoints.innerText = currentTotal +5;
     event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints + 5;
-  } else if (event.target.value === "No Support Turret" && currentUnitPoints > 14) {
+  } else if (event.target.value === "No Support Turret" && currentUnitPoints === 15) {
     totalPoints.innerHTML = currentTotal -7;
     event.target.parentNode.childNodes[2].childNodes[0].innerHTML = currentUnitPoints -7;
   } else {
@@ -793,7 +807,7 @@ function gunnerChange() {
     railFromCarbine(event, currentTotal, currentUnitPoints)
   } else if (event.target.value === "Rail Rifle - 5pt") {
     railFromIon(event, currentTotal, currentUnitPoints);
-  } else if (event.target.value === "Pulse Carbine w/ ML - 0pt" && currentUnitPoints === 12) {
+  } else if (event.target.value === "Pulse Carbine w/ ML" && currentUnitPoints === 12) {
     carbineFromRail(event, currentTotal, currentUnitPoints);
   } else {
     carbineFromIon(event, currentTotal, currentUnitPoints);
